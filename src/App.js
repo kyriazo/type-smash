@@ -16,7 +16,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          I have succesfully deployed this react App.
+          I have succesfully deployed this react App. Ole!
         </a>
       </header>
     </div>
