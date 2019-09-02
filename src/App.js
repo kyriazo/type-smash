@@ -16,7 +16,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          I have succesfully deployed this react App.
         </a>
       </header>
     </div>
