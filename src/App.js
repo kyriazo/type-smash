@@ -6,19 +6,10 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          I have succesfully deployed this react App. Ole!
-        </a>
+        <h1>Type-Smash</h1>
+        <h2>Test your typing skills!</h2>
       </header>
+      <input type='text' placeholder='Start smashing your keyboard...' />
     </div>
   );
 }
