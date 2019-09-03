@@ -1,6 +1,7 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Words from './Words/Words';
+import Typearea from './Typearea/Typearea';
 
 function App() {
   return (
@@ -9,7 +10,10 @@ function App() {
         <h1>Type-Smash</h1>
         <h2>Test your typing skills!</h2>
       </header>
-      <input type='text' placeholder='Start smashing your keyboard...' />
+      <div className='inputContainer'>
+        <Words />
+        <Typearea />
+      </div>
     </div>
   );
 }
