@@ -1,0 +1,33 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  max-height: 80px;
+  background-color: #282c34;
+}
+
+.logo {
+    width:27%;
+    text-align: start;
+}
+
+.heading{
+    width:27%;
+    display: flex;
+}
+
+nav {
+    width: 27%;
+}
+
+ul {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}

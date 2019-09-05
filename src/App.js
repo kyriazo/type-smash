@@ -2,6 +2,7 @@ import React,{ Component } from 'react';
 import './App.css';
 import Words from './components/Words/Words';
 import Typearea from './components/Typearea/Typearea';
+import Header from './components/Header/Header';
 
 class App extends Component {
 
@@ -54,10 +55,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1>Type-Smash</h1>
-          <h2>Test your typing skills!</h2>
-        </header>
+        <Header />
         <div className='inputContainer'>
           <Words
             value={this.state.words_array}
