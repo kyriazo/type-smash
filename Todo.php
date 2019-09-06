@@ -17,3 +17,6 @@
   Think about a way to make things a small proccess. Eg. When a word is to be typed
   there is a "proccess" that begins, its counters initialized etc. When the word is 'Spaced',
   then this "proccess" resets and restarts for the next word. Investigate if we need more handlers for this
+
+
+  Investigate: Do I check each character separately or do i use a function that checks if the string is matched till the typed point
