@@ -8,11 +8,9 @@ const header = () => {
             <h1 className={classes.logo}>Type-Smash.com</h1>
             <h2 className={classes.heading}>Test your typing skills!</h2>
             <nav><ul>
-                <li><a href='/'>Homepage</a></li>
-                <li><a>Stats</a></li>
-                <li><a>About</a></li>
-                <li><a>FAQ</a></li>
-                <li><a>Contact</a></li>
+                <li><a href='http://gkyriazo.com'>About</a></li>
+                <li><a href='https://github.com/kyriazo'>Github</a></li>
+                <li><a href='https://github.com/kyriazo/type-smash'>Source Code</a></li>                
             </ul></nav>
         </header>
     );
