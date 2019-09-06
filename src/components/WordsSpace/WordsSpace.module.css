@@ -1,0 +1,28 @@
+.red {
+    color:red;
+}
+
+.green {
+    color: green;
+}
+
+.grey {
+    color: grey;
+}
+
+.shownWords {
+  height: 200px;
+  width: 80%;
+  display: flex;
+  border: 4px solid rgb(30, 169, 216);
+  border-radius: 10px;
+  margin-bottom: 20px;
+  padding: 10px 10px;
+  background-color: white;
+}
+
+.wordContainer {
+    display: flex;
+    flex-wrap: wrap;
+    max-height: 80px;
+}

@@ -1,0 +1,15 @@
+.word {
+    padding: 10px;
+    height: 20px;
+    margin: 5px;
+    border-radius: 3px;
+    font-size: 22px;
+}
+
+.current {
+    background-color: lightgrey;
+}
+
+.error {
+    background-color: red;
+}
