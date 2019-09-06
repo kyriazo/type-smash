@@ -13,6 +13,8 @@ const wordsspace = (props) => {
         coloring = classes.red;
     }
 
+    coloring = classes.black;
+
     return (
         <div className={classes.shownWords}>
             <div className={coloring +' '+ classes.wordContainer} >{props.children}</div>

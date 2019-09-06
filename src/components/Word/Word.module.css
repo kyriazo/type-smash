@@ -1,7 +1,7 @@
 .word {
     padding: 10px;
     height: 20px;
-    margin: 5px;
+    margin: 5px 5px 8px 5px;
     border-radius: 3px;
     font-size: 22px;
 }

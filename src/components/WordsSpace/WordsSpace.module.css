@@ -10,6 +10,10 @@
     color: grey;
 }
 
+.black {
+    color: black;
+}
+
 .shownWords {
   height: 200px;
   width: 80%;
@@ -19,6 +23,7 @@
   margin-bottom: 20px;
   padding: 10px 10px;
   background-color: white;
+  overflow: hidden;
 }
 
 .wordContainer {
