@@ -11,75 +11,108 @@ class App extends Component {
     typedWord: '',
     char_counter: 1,
     current_word_index: 0,
-    words_array: 'This is an array of words in order to test the app',
     wordClass: '',
     wordHit: true,
     prevtypedStringLength: 0,
-    typedflag: false,
+    typed: '',
     wordValidation: false,
+    words_array : { 'after': 'test', 'before': '', 'tonight': '', 'believe': '', 'candle': '', 'however': '', 'extraordinary': '', 'include': '', 'cat': '', 'waves': '', 'important': '', 'America': '', 'yellow': '', 'sometimes': '' }
+
     }
 
 
   newCharacterHandler = (event) => {
 
-    const words_array = ['after', 'before', 'tonight', 'believe', 'candle', 'however', 'extraordinary', 'include', 'cat', 'waves', 'important', 'America', 'yellow', 'sometimes'];
-
+    const words_array = this.state.words_array;
+    console.log(words_array[0]);
     //Get the string from typing area.
     const typedString = event.target.value;
-    this.setState({ typedflag: false });
+    console.log("This is the typedString:", typedString);
+
     //In case of backspace in empty area.
-    if(typedString === ' ') {
+    if(typedString === '') {
+      console.log("You have emptied the typing area.");
+      console.log(' ');
       return;
     }
+
     //Examine if the string is a space
     if (typedString[typedString.length - 1] === ' ') {
-      console.log('space');
-      let currentWord = this.state.current_word_index;
-      const newWordIndex = currentWord++;
-      this.setState({current_word_index: newWordIndex})
-      if (typedString[typedString.length - 2] === ' '){
+      console.log("You have hit the space key!!!");
+      console.log("This is the typed string:", typedString);
+      //Ensures that hitting space wont trigger the highlight to the next word.
+      if (typedString === ' '){
+        document.getElementById('typearea').value = "";
         return;
       }else{
-        let currentIndex = this.current_word_index;
-        const newIndex = currentIndex + 1;
-        this.setState({current_word_index: 2});
+        //If space is hit, change word
+        let currentWordIndex = this.state.current_word_index;
+        console.log("This is the currentWordIndex", currentWordIndex)
+        const newWordIndex = currentWordIndex++;
+        console.log("This is the newWordIndex", newWordIndex)
+        this.setState({ current_word_index: newWordIndex })
+        console.log("The new word is:", Object.keys(words_array)[this.state.current_word_index + 1]);
+        document.getElementById('typearea').value="";
+        this.setState({current_word_index: this.state.current_word_index+1});
         this.setState({prevtypedStringLength: 0})
-        this.setState({typedflag: true});
+        console.log('The validation flag is:', this.state.wordValidation );
+        const words = {...this.state.words_array};
+        const current_word = Object.keys(words_array)[this.state.current_word_index];
+        console.log("TCL: App -> newCharacterHandler -> words", words,current_word,'Tadaa',words[current_word])
+        if (this.state.wordValidation) {
+          words[current_word] = 'hit';
+        }else{
+          words[current_word] = 'miss'
+        }
+        this.setState({words_array:words})
+        console.log('The new typed value is', this.state.typed);
         //Examine if wrong/right case goes in here
       }
-
+      console.log(' ');
       return;
     }
     //If it is not a space, examine if it is a backspace
     if (this.state.prevtypedStringLength > typedString.length) {
-      //Do backspace stuff
+      console.log('You have hit backspace!!!');
+      console.log("This is the length of the typed string.", typedString.length);
+      console.log("This is the previous string length", this.state.prevtypedStringLength);
       this.setState({ prevtypedStringLength: typedString.length });
-      // console.log(this.state.prevtypedStringLength,typedString.length)
-      console.log('Deleted character')
+      console.log(' ');
       return;
     }else{
     //If the input is a character proceed with checking
-    console.log('Valid character');
-    // console.log(this.state.prevtypedStringLength, typedString.length);
+    console.log('You have inserted a character!');
     this.setState({ prevtypedStringLength: typedString.length });
-    // console.log(this.state.prevtypedStringLength, typedString.length);
     const checkString = typedString.substr(typedString.lastIndexOf(' ') + 1);
-    const validation = words_array[this.state.current_word_index].startsWith(checkString);
+    console.log("This is the string to check for validation", checkString);
+    console.log("The current word is:", Object.keys(words_array)[this.state.current_word_index]);
+    const validation = Object.keys(words_array)[this.state.current_word_index].startsWith(checkString);
+    console.log("Does the typedString match the current word?", validation)
     this.setState({wordValidation: validation});
-    console.log(validation);
+    console.log(' ');
     }
-
   }
 
-  
-  
   render() {
 
-    const words_array = ['after', 'before', 'tonight', 'believe', 'candle', 'however', 'extraordinary', 'include', 'cat', 'waves', 'important', 'America', 'yellow', 'sometimes'];
-
+    const words_object = this.state.words_array;
+    const words_array = Object.keys(words_object)
+    
     const words = words_array.map((word, index) => {
+      
+      console.log(word,index,'frfr',words_object[word])
+      let typed = null;
+
+      if (words_object[word] === 'hit') {
+        typed = 'hit';
+      }else if (words_object[word] === 'miss') {
+        typed = 'miss';
+      }else{
+        typed = null;
+      }
+
       return (
-        <Word word={word} key={index} valid={this.state.wordValidation} flag={this.state.typedflag}/>
+        <Word word={word} key={index} wordnr={index} currentIndex={this.state.current_word_index} valid={this.state.wordValidation} typed={typed}/>
       );
     });
 
@@ -104,43 +137,3 @@ class App extends Component {
 }
 
 export default App;
-
-
-/*
-Backup 
-
- //This is a counter for the typed characters
-    let typedCharCounter = this.state.char_counter;
-    //This increments the above counter for each execution
-    this.setState({char_counter:typedCharCounter+1});
-    //This gets the current string typed in the text input
-    const currentString = event.target.value;
-    const currentChar = currentString[currentString.length - 1];
-    // console.log(currentChar,this.state.char_counter);
-    //This is the toType string array index
-    let word_index = this.state.word_counter;
-    //This is the toType string
-    const words_string = this.state.words_array;
-    //This is the toType words array
-    const words_array = words_string.split(" ");
-    // console.log(words_array[word_index]);
-    //This is the current word to be typed
-    const current_word = words_array[word_index];
-    console.log(typedCharCounter,current_word);
-
-    if (typedCharCounter >= current_word.length) {
-      this.setState({char_counter: 0});
-      const newWordCounter = word_index + 1;
-      this.setState({word_counter: newWordCounter})
-    }
-
-
-    if(currentChar === current_word[typedCharCounter-1]){
-      this.setState({wordHit: true});
-    }else if (currentChar === ' '){
-      this.setState({wordHit:'space'})
-    }else{
-      this.setState({wordHit: false});
-    }
-
-    */
