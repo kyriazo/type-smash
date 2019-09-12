@@ -13,3 +13,11 @@
 .error {
     background-color: red;
 }
+
+.hit{
+    color: green;
+}
+
+.miss {
+    color: red;
+}
