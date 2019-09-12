@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './WordsSpace.module.css'
-import Word from '../Word/Word'
+
 const wordsspace = (props) => {
 
     let coloring = classes.grey;
