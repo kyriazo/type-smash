@@ -3,21 +3,9 @@ import classes from './WordsSpace.module.css'
 
 const wordsspace = (props) => {
 
-    let coloring = classes.grey;
-
-    if (props.hit === 'space') {
-        coloring = classes.grey;
-    }else if (props.hit) {
-        coloring = classes.green;
-    }else{
-        coloring = classes.red;
-    }
-
-    coloring = classes.black;
-
     return (
         <div className={classes.shownWords}>
-            <div className={coloring +' '+ classes.wordContainer} >{props.children}</div>
+            <div className={classes.wordContainer} >{props.children}</div>
         </div>
     )
 }
