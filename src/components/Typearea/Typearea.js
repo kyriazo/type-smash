@@ -2,7 +2,7 @@ import React from 'react';
 
 const typearea = (props)=> {
     return (
-        <input id='typearea' onChange={props.clicked} className='typedWords' type='text' placeholder='Start smashing your keyboard...' value={props.value} />
+        <input id='typearea' onChange={props.clicked} className='typedWords' type='text'  value={props.value} />
     )
 }
 
