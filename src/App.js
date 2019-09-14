@@ -1,9 +1,15 @@
 import React,{ Component } from 'react';
+import ReactGA from 'react-ga';
 import './App.css';
 import WordsSpace from './components/WordsSpace/WordsSpace';
 import Typearea from './components/Typearea/Typearea';
 import Header from './components/Header/Header';
 import Word from './components/Word/Word';
+
+function initializeReactGA() {
+  ReactGA.initialize('UA-147955947-1');
+  ReactGA.pageview('/homepage');
+}
 
 class App extends Component {
 
