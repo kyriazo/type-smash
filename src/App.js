@@ -8,7 +8,7 @@ import Word from './components/Word/Word';
 
 function initializeReactGA() {
   ReactGA.initialize('UA-147955947-1');
-  ReactGA.pageview('/homepage');
+  ReactGA.pageview(window.location.pathname + window.location.search);
 }
 
 initializeReactGA();
