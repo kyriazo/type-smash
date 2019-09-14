@@ -1,0 +1,16 @@
+.countdownWrapper {
+    background-color: rgb(90, 84, 84);
+    display: flex;
+    height: 75px;
+    width: 10%;
+    border-radius: 5px;
+    margin: 0 0 0 10px;
+}
+
+.seconds {
+    font-size: 40px;
+    color: white;
+    text-align: center;
+    width: 100%;
+    margin: auto;
+}
