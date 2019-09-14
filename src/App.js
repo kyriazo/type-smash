@@ -19,9 +19,8 @@ class App extends Component {
     current_word_index: 0,
     prevtypedStringLength: 0,
     wordValidation: false,
-    words_array : { 'after': 'test', 'before': '', 'tonight': '', 'believe': '', 'candle': '', 'however': '', 'extraordinary': '', 'include': '', 'cat': '', 'waves': '', 'important': '', 'America': '', 'yellow': '', 'sometimes': '' }
+    words_array: { inquisitive: '', bomb: '', spooky: '', childlike: '', uncovered: '', flower: '', omniscient: '', fragile: '', voice: '', flow: '', frighten: '', hop: '', cross: '', morning: '', wreck: '', meat: '', meaty: '', laborer: '', adaptable: '', sour: '', gentle: '', recognise: '', distribution: '', illustrious: '', sassy: '', curtain: '', squeamish: '', plan: '', knot: '', title: '', spade: '', coordinated: '', equable: '', thrill: '', rhetorical: '', fretful: '', rub: '', judicious: '', short: '', theory: '', rabbit: '', quartz: '', suppose: '', suggestion: '', flowery: '', influence: '', four: '', own: '', camp: '', wax: '', question: '', anger: '', cure: '', outgoing: '', voracious: '', existence: '', work: '', girls: '', kill: '', partner: '', command: '', spotty: '', temper: '', wave: '', deliver: '', sheep: '', pump: '', elated: '', agonizing: '', top: '', dust: '', lettuce: '', solid: '', fair: '', wandering: '', stove: '', square: '', meal: '', trick: '', stretch: '', suck: '', kaput: '', cooing: '', change: '', haircut: '', join: '', greet: '', suspend: '', start: '', abortive: '', blushing: '', apparatus: '', tow: '', hum: '', slippery: '', marry: '', famous: '', tumble: '', spoon: '', terrible: '' },
   }
-
   newInputHandler = (event) => {
 
     const words_array = this.state.words_array;
@@ -68,8 +67,8 @@ class App extends Component {
       this.setState({ prevtypedStringLength: 0 })
       const words = { ...this.state.words_array };
       const current_word = Object.keys(words_array)[this.state.current_word_index];
-
-      if (this.state.wordValidation) {
+      const onlyTypedString = typedString.substring(0, typedString.length - 1);
+      if (this.state.wordValidation && onlyTypedString === Object.keys(words_array)[currentWordIndex-1]) {
         words[current_word] = 'hit';
       } else {
         words[current_word] = 'miss'
