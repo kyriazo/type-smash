@@ -11,6 +11,8 @@ function initializeReactGA() {
   ReactGA.pageview('/homepage');
 }
 
+initializeReactGA();
+
 class App extends Component {
 
   state = {
