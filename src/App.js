@@ -1,10 +1,11 @@
 import React,{ Component } from 'react';
 import ReactGA from 'react-ga';
-import './App.css';
 import WordsSpace from './components/WordsSpace/WordsSpace';
 import Typearea from './components/Typearea/Typearea';
 import Header from './components/Header/Header';
 import Word from './components/Word/Word';
+import classes from './App.module.css';
+import Countdown from './components/Countdown/Countdown';
 
 function initializeReactGA() {
   ReactGA.initialize('UA-147955947-1');
@@ -20,11 +21,18 @@ class App extends Component {
     prevtypedStringLength: 0,
     wordValidation: false,
     words_array: { inquisitive: '', bomb: '', spooky: '', childlike: '', uncovered: '', flower: '', omniscient: '', fragile: '', voice: '', flow: '', frighten: '', hop: '', cross: '', morning: '', wreck: '', meat: '', meaty: '', laborer: '', adaptable: '', sour: '', gentle: '', recognise: '', distribution: '', illustrious: '', sassy: '', curtain: '', squeamish: '', plan: '', knot: '', title: '', spade: '', coordinated: '', equable: '', thrill: '', rhetorical: '', fretful: '', rub: '', judicious: '', short: '', theory: '', rabbit: '', quartz: '', suppose: '', suggestion: '', flowery: '', influence: '', four: '', own: '', camp: '', wax: '', question: '', anger: '', cure: '', outgoing: '', voracious: '', existence: '', work: '', girls: '', kill: '', partner: '', command: '', spotty: '', temper: '', wave: '', deliver: '', sheep: '', pump: '', elated: '', agonizing: '', top: '', dust: '', lettuce: '', solid: '', fair: '', wandering: '', stove: '', square: '', meal: '', trick: '', stretch: '', suck: '', kaput: '', cooing: '', change: '', haircut: '', join: '', greet: '', suspend: '', start: '', abortive: '', blushing: '', apparatus: '', tow: '', hum: '', slippery: '', marry: '', famous: '', tumble: '', spoon: '', terrible: '' },
+    typingStarted : false,
   }
+
+  resetHandler = () => {
+    console.log('Bika sto reset');
+    this.setState({typingStarted: false});
+    console.log('To state typingStarted einai pleon', this.state.typingStarted);
+  }
+  
   newInputHandler = (event) => {
 
     const words_array = this.state.words_array;
-
     //Get the string from typing area.
     const typedString = event.target.value;
 
@@ -109,15 +117,18 @@ class App extends Component {
     });
 
     return (
-      <div className="App">
+      <div className={classes.App}>
         <Header />
-        <div className='inputContainer'>
+        <div className={classes.inputContainer}>
           <WordsSpace>
             {words}
           </WordsSpace>
-          <Typearea
-            clicked={this.newInputHandler}
-          />
+          <div className={classes.inputWrapper}>
+            <Typearea
+              clicked={this.newInputHandler}
+            />
+            <Countdown typingStarted={this.state.typingStarted}  reset={this.resetHandler}/>
+          </div>
         </div>
       </div>
     )
